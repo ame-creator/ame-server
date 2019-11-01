@@ -12,7 +12,14 @@ export default (appInfo: EggAppInfo) => {
 
   // add your special config in here
   const bizConfig = {
-    sourceUrl: `https://github.com/eggjs/examples/tree/master/${appInfo.name}`,
+    mongoose: {
+      client: {
+        url: 'mongodb://127.0.0.1:27017/ame',
+        options: {
+          useCreateIndex: true,
+        },
+      },
+    },
   };
 
   // the return config will combines to EggAppConfig
