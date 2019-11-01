@@ -6,4 +6,5 @@ export default (app: Application) => {
   router.get('/', controller.home.index);
 
   router.get('/components', controller.component.list);
+  router.post('/components', controller.component.create);
 };
