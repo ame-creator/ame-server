@@ -22,11 +22,14 @@
     "clean": "ets clean"
   },
   "dependencies": {
+    "@types/lodash": "^4.14.144",
     "egg": "^2.6.1",
     "egg-cors": "^2.2.2",
     "egg-mongoose": "^3.2.0",
     "egg-scripts": "^2.6.0",
-    "egg-validate": "^2.0.2"
+    "egg-validate": "^2.0.2",
+    "fs-extra": "^8.1.0",
+    "lodash": "^4.17.15"
   },
   "devDependencies": {
     "@types/mocha": "^2.2.40",
