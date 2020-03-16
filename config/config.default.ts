@@ -1,4 +1,5 @@
 import { EggAppConfig, EggAppInfo, PowerPartial } from 'egg';
+import * as path from 'path';
 
 export default (appInfo: EggAppInfo) => {
   const config = {} as PowerPartial<EggAppConfig>;
@@ -13,18 +14,29 @@ export default (appInfo: EggAppInfo) => {
     },
   };
 
+  config.cors = {
+    credentials: true,
+  };
+
   // add your egg config in here
   config.middleware = [];
 
+  config.mongoose = {
+    client: {
+      url: 'mongodb://127.0.0.1:27017/ame',
+      options: {
+        useCreateIndex: true,
+      },
+    },
+  };
+
   // add your special config in here
   const bizConfig = {
-    mongoose: {
-      client: {
-        url: 'mongodb://127.0.0.1:27017/ame',
-        options: {
-          useCreateIndex: true,
-        },
-      },
+    ame: {
+      componentsRoot: path.join(__dirname, '../../ame-components'),
+      templateRoot: path.join(__dirname, '../../ame-templates/vue-vuetify-mobile'),
+      distRoot: path.join(__dirname, '../../ame-dist'),
+      previewUrlPrefix: 'http://localhost:8081/',
     },
   };
 

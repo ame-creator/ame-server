@@ -1,11 +1,18 @@
 import { Service } from 'egg';
 import * as mongoose from 'mongoose';
+import * as path from 'path';
+import * as fs from 'fs-extra';
 
 interface ComponentPayload {
+  name?: string;
+  title?: string;
+  version?: string;
+  creator?: string;
+}
+
+interface GetSchemaPayload {
   name: string;
-  title: string;
-  version: string;
-  creator: string;
+  version?: string;
 }
 
 export default class ComponentService extends Service {
@@ -37,5 +44,25 @@ export default class ComponentService extends Service {
       deletedAt: new Date(),
       deletedBy: 'admin',
     });
+  }
+
+  public async getSchema(payload: GetSchemaPayload) {
+    const { name } = payload;
+
+    const { componentsRoot } = this.config.ame;
+
+    const componentPath = path.join(componentsRoot, name);
+
+    if (!await fs.exists(componentPath)) {
+      return;
+    }
+
+    const schema = await fs.readJson(path.join(componentPath, 'dist', 'dataSchema.json'));
+    const options = require(path.join(componentPath, 'dist', 'data.js'));
+
+    return {
+      schema,
+      options,
+    };
   }
 }
