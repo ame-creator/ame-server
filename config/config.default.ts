@@ -23,19 +23,22 @@ export default (appInfo: EggAppInfo) => {
 
   config.mongoose = {
     client: {
-      url: 'mongodb://127.0.0.1:27017/ame',
+      url: 'mongodb://mongo:27087/ame',
       options: {
         useCreateIndex: true,
+        user: 'ame',
+        pass: 'ame2020',
       },
     },
   };
 
   // add your special config in here
   const bizConfig = {
+    routerPrefix: '/',
     ame: {
-      componentsRoot: path.join(__dirname, '../../ame-components'),
+      componentsRoot: path.join(__dirname, '../../ame-components-dist'),
       templateRoot: path.join(__dirname, '../../ame-templates/vue-vuetify-mobile'),
-      distRoot: path.join(__dirname, '../../ame-dist'),
+      distRoot: '/data/ame-dist',
       previewUrlPrefix: 'http://localhost:8081/',
     },
   };

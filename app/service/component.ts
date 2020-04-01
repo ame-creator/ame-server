@@ -57,8 +57,8 @@ export default class ComponentService extends Service {
       return;
     }
 
-    const schema = await fs.readJson(path.join(componentPath, 'dist', 'dataSchema.json'));
-    const options = require(path.join(componentPath, 'dist', 'data.js'));
+    const schema = await fs.readJson(path.join(componentPath, 'dataSchema.json'));
+    const options = require(path.join(componentPath, 'data.js'));
 
     return {
       schema,
