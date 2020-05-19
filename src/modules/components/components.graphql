@@ -1,0 +1,38 @@
+type Component {
+  _id: ObjectID!
+  name: String
+  title: String
+  version: String
+  description: String
+  creator: String
+}
+
+input CreateComponentInput {
+  name: String!
+  title: String!
+  version: String!
+  description: String!
+  creator: String!
+}
+
+input UpdateComponentInput {
+  _id: ObjectID!
+  name: String!
+  title: String!
+  version: String!
+  description: String!
+  creator: String!
+}
+
+type Query {
+  components: [Component]
+  componentById(_id: ObjectID!): Component
+}
+
+type Mutation {
+  createComponent(input: CreateComponentInput): Component
+  updateComponent(input: UpdateComponentInput): Component
+  deleteComponent(id: ObjectID): Component
+}
+
+scalar ObjectID

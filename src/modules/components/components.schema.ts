@@ -31,7 +31,7 @@ export const ComponentSchema = new mongoose.Schema({
     type: Date,
     select: false,
   },
-  deleteBy: {
+  deletedBy: {
     type: String,
     select: false,
   },

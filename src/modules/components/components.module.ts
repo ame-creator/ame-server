@@ -1,6 +1,5 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose'
-import { ComponentsService } from './components.service';
 import { ComponentsResolver } from './components.resolver';
 import { ComponentSchema } from './components.schema'
 
@@ -11,6 +10,6 @@ import { ComponentSchema } from './components.schema'
       schema: ComponentSchema
     }])
   ],
-  providers: [ComponentsService, ComponentsResolver]
+  providers: [ComponentsResolver]
 })
 export class ComponentsModule {}
