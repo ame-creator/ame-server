@@ -1,6 +1,6 @@
-import { Module } from '@nestjs/common';
+import { Module } from '@nestjs/common'
 import { MongooseModule } from '@nestjs/mongoose'
-import { ComponentsResolver } from './components.resolver';
+import { ComponentsResolver } from './components.resolver'
 import { ComponentSchema } from './components.schema'
 
 @Module({

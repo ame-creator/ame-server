@@ -1,40 +1,48 @@
-import * as mongoose from 'mongoose'
+import { Document } from 'mongoose'
+import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose'
 
-export const ComponentSchema = new mongoose.Schema({
-  name: {
-    type: String,
+@Schema({
+  timestamps: true
+})
+export class Component extends Document {
+  @Prop({
     required: true,
-    unique: true,
-  },
-  title: {
-    type: String,
-    required: true,
-  },
-  type: {
-    type: String,
-  },
-  version: {
-    type: String,
-  },
-  description: {
-    type: String,
-  },
-  creator: {
-    type: String,
-  },
-  isDeleted: {
-    type: Boolean,
+    unique: true
+  })
+  name: string
+
+  @Prop({
+    required: true
+  })
+  title: string
+
+  @Prop()
+  type: string
+
+  @Prop()
+  version: string
+
+  @Prop()
+  description: string
+
+  @Prop()
+  creator: string
+
+  @Prop({
     default: false,
     select: false,
-  },
-  deletedAt: {
-    type: Date,
-    select: false,
-  },
-  deletedBy: {
-    type: String,
-    select: false,
-  },
-}, {
-  timestamps: true,
-})
+  })
+  isDeleted: boolean
+
+  @Prop({
+    select: false
+  })
+  deletedAt: Date
+
+  @Prop({
+    select: false
+  })
+  deletedBy: string
+}
+
+export const ComponentSchema = SchemaFactory.createForClass(Component)

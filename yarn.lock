@@ -681,10 +681,10 @@
   resolved "https://registry.npm.taobao.org/@nestjs/mapped-types/download/@nestjs/mapped-types-0.0.4.tgz#a55d3e78905a019abb42c69763d04b976e6a8a92"
   integrity sha1-pV0+eJBaAZq7QsaXY9BLl25qipI=
 
-"@nestjs/mongoose@^6.4.0":
-  version "6.4.0"
-  resolved "https://registry.npm.taobao.org/@nestjs/mongoose/download/@nestjs/mongoose-6.4.0.tgz#3ea2773528f8c4948b76377d24008f5b663b4e14"
-  integrity sha1-PqJ3NSj4xJSLdjd9JACPW2Y7ThQ=
+"@nestjs/mongoose@^7.0.1":
+  version "7.0.1"
+  resolved "https://registry.npm.taobao.org/@nestjs/mongoose/download/@nestjs/mongoose-7.0.1.tgz#832ec72621cc9103c03dc294818c1ae749a483e3"
+  integrity sha1-gy7HJiHMkQPAPcKUgYwa50mkg+M=
 
 "@nestjs/platform-express@^7.0.0":
   version "7.0.13"
@@ -882,6 +882,13 @@
     "@types/connect" "*"
     "@types/node" "*"
 
+"@types/bson@*":
+  version "4.0.2"
+  resolved "https://registry.npm.taobao.org/@types/bson/download/@types/bson-4.0.2.tgz#7accb85942fc39bbdb7515d4de437c04f698115f"
+  integrity sha1-esy4WUL8ObvbdRXU3kN8BPaYEV8=
+  dependencies:
+    "@types/node" "*"
+
 "@types/color-name@^1.1.1":
   version "1.1.1"
   resolved "https://registry.npm.taobao.org/@types/color-name/download/@types/color-name-1.1.1.tgz?cache=0&sync_timestamp=1588199606687&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Fcolor-name%2Fdownload%2F%40types%2Fcolor-name-1.1.1.tgz#1c1261bbeaa10a8055bbc5d8ab84b7b2afc846a0"
@@ -1061,6 +1068,22 @@
   version "3.0.3"
   resolved "https://registry.npm.taobao.org/@types/minimatch/download/@types/minimatch-3.0.3.tgz#3dca0e3f33b200fc7d1139c0cd96c1268cadfd9d"
   integrity sha1-PcoOPzOyAPx9ETnAzZbBJoyt/Z0=
+
+"@types/mongodb@*":
+  version "3.5.18"
+  resolved "https://registry.npm.taobao.org/@types/mongodb/download/@types/mongodb-3.5.18.tgz#79b1b8119e035980a4b4412239e0d05b367ec647"
+  integrity sha1-ebG4EZ4DWYCktEEiOeDQWzZ+xkc=
+  dependencies:
+    "@types/bson" "*"
+    "@types/node" "*"
+
+"@types/mongoose@^5.7.21":
+  version "5.7.21"
+  resolved "https://registry.npm.taobao.org/@types/mongoose/download/@types/mongoose-5.7.21.tgz#a3f0b6875f85c2afae6a5f0f1a7991732329e7e8"
+  integrity sha1-o/C2h1+Fwq+ual8PGnmRcyMp5+g=
+  dependencies:
+    "@types/mongodb" "*"
+    "@types/node" "*"
 
 "@types/node-fetch@2.5.4":
   version "2.5.4"

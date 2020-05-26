@@ -1,13 +1,14 @@
-import { Resolver, Query, Mutation, Args } from '@nestjs/graphql';
-import { Injectable } from '@nestjs/common';
+import { Resolver, Query, Mutation, Args } from '@nestjs/graphql'
+import { Injectable } from '@nestjs/common'
 import { InjectModel } from '@nestjs/mongoose'
 import { Model } from 'mongoose'
 import { CreateComponentInput, UpdateComponentInput, Component } from '@/generator/graphql.schema'
+import { Component as ComponentDocument } from './components.schema'
 
 @Resolver('Component')
 @Injectable()
 export class ComponentsResolver {
-  constructor(@InjectModel('Component') private componentModel: Model<Component>) {}
+  constructor(@InjectModel('Component') private readonly componentModel: Model<ComponentDocument>) {}
 
   @Query()
   async components() {
@@ -16,7 +17,7 @@ export class ComponentsResolver {
 
   @Mutation()
   async createComponent(@Args('input') input: CreateComponentInput): Promise<Component> {
-    const createdComponent = new this.componentModel(input )
+    const createdComponent = new this.componentModel(input)
     return await createdComponent.save()
   }
 
