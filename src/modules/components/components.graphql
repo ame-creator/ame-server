@@ -1,10 +1,10 @@
 type Component {
   _id: ObjectID!
-  name: String
-  title: String
-  version: String
-  description: String
-  creator: String
+  name: String!
+  title: String!
+  version: String!
+  description: String!
+  creator: String!
 }
 
 input CreateComponentInput {
@@ -26,7 +26,7 @@ input UpdateComponentInput {
 
 type Query {
   components: [Component]
-  componentById(_id: ObjectID!): Component
+  componentById(id: ObjectID!): Component
 }
 
 type Mutation {

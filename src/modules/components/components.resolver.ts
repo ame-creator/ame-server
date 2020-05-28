@@ -15,6 +15,11 @@ export class ComponentsResolver {
     return await this.componentModel.find().exec()
   }
 
+  @Query()
+  async componentById(@Args('id') id: string): Promise<Component> {
+    return await this.componentModel.findById(id).exec()
+  }
+
   @Mutation()
   async createComponent(@Args('input') input: CreateComponentInput): Promise<Component> {
     const createdComponent = new this.componentModel(input)

@@ -1,0 +1,40 @@
+type Tempalte {
+  id: ObjectID!
+  version: String
+}
+
+type Page {
+  _id: ObjectID!
+  projectId: ObjectID
+  title: String!
+  order: Int!
+  template: Tempalte
+  snapshot: String!
+  options: Object!
+  creator: String!
+}
+
+input TemplateInput {
+  id: ObjectID!
+  version: String
+}
+
+input CreatePageInput {
+  projectId: ObjectID!
+  title: String!
+  template: TemplateInput!
+  snapshot: String!
+  creator: String!
+}
+
+type Query {
+  pages: [Page]
+  pageById(_id: ObjectID!): Page
+}
+
+type Mutation {
+  createPage(input: CreatePageInput): Page
+}
+
+scalar ObjectID
+scalar Object
