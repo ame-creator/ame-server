@@ -8,7 +8,7 @@ import { Component as ComponentDocument } from './components.schema'
 @Resolver('Component')
 @Injectable()
 export class ComponentsResolver {
-  constructor(@InjectModel('Component') private readonly componentModel: Model<ComponentDocument>) {}
+  constructor(@InjectModel('Component') private readonly componentModel: Model<ComponentDocument>) { }
 
   @Query()
   async components() {
@@ -36,6 +36,10 @@ export class ComponentsResolver {
 
   @Mutation()
   async deleteComponent(@Args('id') id: string): Promise<Component> {
-    return await this.componentModel.findByIdAndRemove(id)
+    return await this.componentModel.findByIdAndUpdate(id, {
+      isDeleted: true,
+      deletedAt: new Date(),
+      deletedBy: "admin"
+    })
   }
 }

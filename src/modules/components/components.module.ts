@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common'
 import { MongooseModule } from '@nestjs/mongoose'
 import { ComponentsResolver } from './components.resolver'
 import { ComponentSchema } from './components.schema'
+import { DateScalar } from '../../scalars/date.scalar'
 
 @Module({
   imports: [
@@ -10,6 +11,6 @@ import { ComponentSchema } from './components.schema'
       schema: ComponentSchema
     }])
   ],
-  providers: [ComponentsResolver]
+  providers: [ComponentsResolver, DateScalar]
 })
 export class ComponentsModule {}

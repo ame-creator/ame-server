@@ -4,7 +4,7 @@ import { Kind, ASTNode } from 'graphql'
 
 @Scalar('Object')
 export class ObjectScalar {
-  description = 'Object scalar type'
+  description = 'Object custom scalar type'
 
   parseValue(value: object | string) {
     return typeof value === 'object' ? value

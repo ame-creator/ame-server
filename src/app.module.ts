@@ -13,8 +13,7 @@ import { ComponentsModule } from './modules/components/components.module'
         typePaths: ['./**/*.graphql'],
         definitions: {
           path: join(process.cwd(), 'src/generator/graphql.schema.ts'),
-          outputAs: 'class',
-          watch: true
+          outputAs: 'class'
         }
       }),
     }),
@@ -24,4 +23,4 @@ import { ComponentsModule } from './modules/components/components.module'
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule {}
+export class AppModule { }

@@ -3,8 +3,11 @@ type Component {
   name: String!
   title: String!
   version: String!
-  description: String!
+  description: String
   creator: String!
+  isDeleted: Boolean
+  deletedAt: Date
+  deletedBy: String
 }
 
 input CreateComponentInput {
@@ -16,12 +19,11 @@ input CreateComponentInput {
 }
 
 input UpdateComponentInput {
-  _id: ObjectID!
-  name: String!
-  title: String!
-  version: String!
-  description: String!
-  creator: String!
+  name: String
+  title: String
+  version: String
+  description: String
+  creator: String
 }
 
 type Query {
@@ -31,8 +33,9 @@ type Query {
 
 type Mutation {
   createComponent(input: CreateComponentInput): Component
-  updateComponent(input: UpdateComponentInput): Component
+  updateComponent(id: ObjectID, input: UpdateComponentInput): Component
   deleteComponent(id: ObjectID): Component
 }
 
 scalar ObjectID
+scalar Date

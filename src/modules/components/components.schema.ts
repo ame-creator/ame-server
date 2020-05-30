@@ -30,18 +30,13 @@ export class Component extends Document {
 
   @Prop({
     default: false,
-    select: false,
   })
   isDeleted: boolean
 
-  @Prop({
-    select: false
-  })
+  @Prop()
   deletedAt: Date
 
-  @Prop({
-    select: false
-  })
+  @Prop()
   deletedBy: string
 }
 
