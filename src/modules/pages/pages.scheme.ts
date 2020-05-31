@@ -1,11 +1,11 @@
 import { Document } from 'mongoose'
 import { Schema, Prop, SchemaFactory } from '@nestjs/mongoose'
-import { ObjectID } from '@/generator/graphql.schema'
+import { Types } from 'mongoose'
 
 @Schema()
-class Template extends Document {
+class Template {
   @Prop()
-  id: ObjectID
+  id: Types.ObjectId
 
   @Prop()
   version: string
@@ -18,7 +18,7 @@ export class Page extends Document {
   @Prop({
     required: true
   })
-  projectId: ObjectID
+  projectId: Types.ObjectId
 
   @Prop()
   title: string

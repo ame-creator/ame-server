@@ -5,6 +5,7 @@ import { join } from 'path'
 import { AppController } from './app.controller'
 import { AppService } from './app.service'
 import { ComponentsModule } from './modules/components/components.module'
+import { PagesModule } from './modules/pages/page.module'
 
 @Module({
   imports: [
@@ -18,7 +19,8 @@ import { ComponentsModule } from './modules/components/components.module'
       }),
     }),
     MongooseModule.forRoot('mongodb://localhost:27017/ame'),
-    ComponentsModule
+    ComponentsModule,
+    PagesModule
   ],
   controllers: [AppController],
   providers: [AppService],

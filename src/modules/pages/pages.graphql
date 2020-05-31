@@ -5,12 +5,12 @@ type Tempalte {
 
 type Page {
   _id: ObjectID!
-  projectId: ObjectID
+  projectId: ObjectID!
   title: String!
-  order: Int!
+  order: Int
   template: Tempalte
-  snapshot: String!
-  options: Object!
+  snapshot: String
+  options: Object
   creator: String!
 }
 
@@ -22,8 +22,8 @@ input TemplateInput {
 input CreatePageInput {
   projectId: ObjectID!
   title: String!
-  template: TemplateInput!
-  snapshot: String!
+  template: TemplateInput
+  snapshot: String
   creator: String!
 }
 
